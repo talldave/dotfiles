@@ -10,33 +10,8 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# set prompt
-source ~/.bash_colors
-PS1_Host="laptop"
-#source ~/.bash_prompt
-export PROMPT_DIRTRIM=2
-export GIT_PS1_SHOWDIRTYSTATE=true
-#export GIT_PROJECT=""
+source ~/.bash_prompt
 source ~/.git_completion
-source ~/.git_prompt
-#PS1='\[\033[01;31m\]laptop $(__git_ps1 " (%s)")\$\[\033[00m\] '
-#PS1=$Red$PS1_Host$White' $(__git_ps1 "(%s)")\$ '$Color_Off
-#PS1='\[\033[01;31m\]laptop \$\[\033[00m\] '
-PS1=$URed$PS1_Host'$(git branch &>/dev/null;\
-if [ $? -eq 0 ]; then \
-  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-  if [ "$?" -eq "0" ]; then \
-    # @4 - Clean repository - nothing to commit
-    echo "'${Green}'"$(__git_ps1 " (${GIT_PROJECT} | %s)"); \
-  else \
-    # @5 - Changes to working tree
-    echo "'${IRed}'"$(__git_ps1 " {${GIT_PROJECT} | %s}"); \
-  fi) '${Color_Off}'\$ "; \
-else \
-  # @2 - Prompt when not in GIT repo
-  echo "'$Red' \w'$Color_Off' \$ "; \
-fi)'
-
 
 export TZ=America/Los_Angeles
 #export LD_LIBRARY_PATH=/opt/X11/lib
