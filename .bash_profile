@@ -10,8 +10,8 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-source ~/.bash_prompt
 source ~/.git_completion
+source ~/.bash_prompt
 
 export TZ=America/Los_Angeles
 #export LD_LIBRARY_PATH=/opt/X11/lib
@@ -38,6 +38,7 @@ alias ll='ls -al'
 alias repo='source ~/.git_repo'
 alias gs='lynx http://www.google.com/'
 alias h='history | tail -30'
+alias hg='history | grep -i'
 #alias rm='~/bin/trashit'
 #alias grass='/Applications/GRASS-6.4.app/Contents/MacOS/grass.sh'
 #alias today='echo;grep ~~~ ~/Projects/Notebook/todo.md;echo'
