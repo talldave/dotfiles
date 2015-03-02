@@ -3,8 +3,8 @@ PS1_Host="laptop"
 PROMPT_COMMAND='Git_Repo=$(git config --get remote.origin.url)'
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
-export GIT_PS1_SHOWUPSTREAM="auto"
-#export GIT_PS1_SHOWUPSTREAM="verbose name"
+#export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWUPSTREAM="git"
 
 source ~/.bash_colors
 source ~/.git_completion
