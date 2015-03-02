@@ -66,18 +66,18 @@ nmap <leader>w :w!<cr>  " Fast saving
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number " Show line numbers
-set relativenumber
-:au FocusLost * silent! :set norelativenumber
-:au FocusGained * silent! :set relativenumber
-autocmd InsertEnter * silent! :set norelativenumber
-autocmd InsertLeave,BufNewFile,VimEnter * silent! :set relativenumber
+"set relativenumber
+":au FocusLost * silent! :set norelativenumber
+":au FocusGained * silent! :set relativenumber
+"autocmd InsertEnter * silent! :set norelativenumber
+"autocmd InsertLeave,BufNewFile,VimEnter * silent! :set relativenumber
 set so=7 " Set 7 lines to the cursor - when moving vertically using j/k
 
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber
+  if(&number == 1)
+    set nonumber
   else
-    set relativenumber
+    set number
   endif
 endfunc
 
@@ -155,7 +155,7 @@ set tw=500
 
 set ai   "Auto indent
 set si   "Smart indent
-set wrap "Wrap lines
+set nowrap "Don't wrap lines
 
 
 """"""""""""""""""""""""""""""

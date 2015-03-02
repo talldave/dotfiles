@@ -38,6 +38,7 @@ else \
 fi)'
 
 
+export TZ=America/Los_Angeles
 #export LD_LIBRARY_PATH=/opt/X11/lib
 #export EC2_HOME=~/.ec2
 export CDPATH=.:~:~/Work:~/Work/git
@@ -60,7 +61,6 @@ alias ls='ls -p'
 alias la='ls -a'
 alias ll='ls -al'
 alias repo='source ~/.git_repo'
-alias ls='ls -p'
 alias gs='lynx http://www.google.com/'
 alias h='history | tail -30'
 #alias rm='~/bin/trashit'
@@ -77,7 +77,9 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias vi='vim'
-alias vm-local='vagrant up 67573c9'
+alias vm-local-up='vagrant up 67573c9'
+alias vm-local-down='vagrant halt 67573c9'
+alias vm-local-ssh='vagrant ssh 67573c9'
 
 echo   ' .bash_profile sourced.'
 
