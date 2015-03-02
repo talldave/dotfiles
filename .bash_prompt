@@ -2,7 +2,9 @@
 PS1_Host="laptop"
 PROMPT_COMMAND='Git_Repo=$(git config --get remote.origin.url)'
 
-export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWDIRTYSTATE="true"
+export GIT_PS1_SHOWUPSTREAM="auto"
+#export GIT_PS1_SHOWUPSTREAM="verbose name"
 
 source ~/.bash_colors
 source ~/.git_prompt
@@ -17,26 +19,23 @@ if [ $? -eq 0 ]; then \
   else \
     # @5 - Changes to working tree
     echo "'${IRed}'"$(__git_ps1 " {${Git_Repo} | %s}"); \
-  fi) '${Color_Off}' \$ "; \
+  fi) '${Color_Off}'\$ "; \
 else \
   # @2 - Prompt when not in GIT repo
   echo "'${Red}' \w'${Color_Off}' \$ "; \
 fi)'
 
-## PROMPT
-#export PS1=$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
-#if [ $? -eq 0 ]; then \
-  #echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-  #if [ "$?" -eq "0" ]; then \
-    ## @4 - Clean repository - nothing to commit
-    #echo "'$Green'"$(__git_ps1 " (%s)"); \
-  #else \
-    ## @5 - Changes to working tree
-    #echo "'$IRed'"$(__git_ps1 " {%s}"); \
-  #fi) '$BYellow$PathShort$Color_Off'\$ "; \
-#else \
-  ## @2 - Prompt when not in GIT repo
-  #echo " '$Yellow$PathShort$Color_Off'\$ "; \
-#fi)'
 
-
+# If you would like to see the difference between HEAD and its upstream,
+# set GIT_PS1_SHOWUPSTREAM="auto".  A "<" indicates you are behind, ">"
+# indicates you are ahead, "<>" indicates you have diverged and "="
+# indicates that there is no difference. You can further control
+# behaviour by setting GIT_PS1_SHOWUPSTREAM to a space-separated list
+# of values:
+#
+#     verbose       show number of commits ahead/behind (+/-) upstream
+#     name          if verbose, then also show the upstream abbrev name
+#     legacy        don't use the '--count' option available in recent
+#                   versions of git-rev-list
+#     git           always compare HEAD to @{upstream}
+#     svn           always compare HEAD to your SVN upstream
