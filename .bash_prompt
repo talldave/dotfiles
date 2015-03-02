@@ -1,5 +1,24 @@
+#!/bin/bash
 
-PS1_Host="laptop"
+# if PS1_Host doesn't exist, set it
+# if on laptop, default to 'laptop' else ask
+ps1host=""
+if [-n "${PS1_Host:-x}"]
+then
+    $(hostname | grep dbianco > /dev/null 2>&1)
+    if [ $? -eq 0 ]
+    then
+        PS1_Host="laptop"
+    else
+        if [-n "${ps1host:-x}"]
+        then
+            echo "Set ps1host var in .bash_prompt"
+        fi
+        PS1_Host=$ps1host
+    fi
+    export PS1_Host
+fi
+
 PROMPT_COMMAND='Git_Repo=$(git config --get remote.origin.url)'
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
