@@ -1,0 +1,38 @@
+#!/bin/bash
+
+GIT_PROJECT=""
+Git_Top="$HOME/Work/git/"
+
+case "$1" in
+    foo)
+        GIT_PROJECT="dave_bianco/foo"
+        ;;
+    api)
+        GIT_PROJECT="Web/api"
+        ;;
+    gis)
+        GIT_PROJECT="dave_bianco/geospatial-data"
+        ;;
+    *)
+        echo >&2 "Invalid repo"
+        ;;
+esac
+
+export GIT_PROJECT
+cd ${Git_Top}${GIT_PROJECT}
+
+export PS1=$Red$PS1_Host'$(git branch &>/dev/null;\
+if [ $? -eq 0 ]; then \
+  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+  if [ "$?" -eq "0" ]; then \
+    # @4 - Clean repository - nothing to commit
+    echo "'$Green'"$(__git_ps1 " (%s)"); \
+  else \
+    # @5 - Changes to working tree
+    echo "'$IRed'"$(__git_ps1 " {%s}"); \
+  fi) '${GIT_PROJECT}${Color_Off}'\$ "; \
+else \
+  # @2 - Prompt when not in GIT repo
+  echo " \w'$Color_Off'\$ "; \
+fi)'
+
