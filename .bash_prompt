@@ -7,6 +7,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 #export GIT_PS1_SHOWUPSTREAM="verbose name"
 
 source ~/.bash_colors
+source ~/.git_completion
 source ~/.git_prompt
 
 # PROMPT
