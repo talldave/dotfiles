@@ -4,10 +4,8 @@ PROMPT_COMMAND='Git_Repo=$(git config --get remote.origin.url)'
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
 #export GIT_PS1_SHOWUPSTREAM="auto"
-export GIT_PS1_SHOWUPSTREAM="git"
 
 source ~/.bash_colors
-source ~/.git_completion
 source ~/.git_prompt
 
 # PROMPT
@@ -25,18 +23,3 @@ else \
   # @2 - Prompt when not in GIT repo
   echo "'${Red}' \w'${Color_Off}' \$ "; \
 fi)'
-
-
-# If you would like to see the difference between HEAD and its upstream,
-# set GIT_PS1_SHOWUPSTREAM="auto".  A "<" indicates you are behind, ">"
-# indicates you are ahead, "<>" indicates you have diverged and "="
-# indicates that there is no difference. You can further control
-# behaviour by setting GIT_PS1_SHOWUPSTREAM to a space-separated list
-# of values:
-#
-#     verbose       show number of commits ahead/behind (+/-) upstream
-#     name          if verbose, then also show the upstream abbrev name
-#     legacy        don't use the '--count' option available in recent
-#                   versions of git-rev-list
-#     git           always compare HEAD to @{upstream}
-#     svn           always compare HEAD to your SVN upstream
