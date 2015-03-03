@@ -10,7 +10,7 @@ then
     then
         PS1_Host="laptop"
     else
-        if [-n "${ps1host:?}"]
+        if [ -n "${ps1host:-x}" ]
         then
             echo "Set ps1host var in .bash_prompt"
         fi
@@ -19,12 +19,14 @@ then
     export PS1_Host
 fi
 
+source ~/.bash_colors
+
+if [-f "~/.git_prompt"]; then
 PROMPT_COMMAND='Git_Repo=$(git config --get remote.origin.url)'
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
 #export GIT_PS1_SHOWUPSTREAM="auto"
 
-source ~/.bash_colors
 source ~/.git_prompt
 
 # PROMPT
@@ -42,3 +44,7 @@ else \
   # @2 - Prompt when not in GIT repo
   echo "'${Red}' \w'${Color_Off}' \$ "; \
 fi)'
+
+else
+    PS1=${BGreen}${PS1_Host}${Color_Off}" \$ "
+fi
