@@ -3,14 +3,14 @@
 # if PS1_Host doesn't exist, set it
 # if on laptop, default to 'laptop' else ask
 ps1host=""
-if [-n "${PS1_Host:-x}"]
+if [ -n "${PS1_Host:-x}" ]
 then
     $(hostname | grep dbianco > /dev/null 2>&1)
     if [ $? -eq 0 ]
     then
         PS1_Host="laptop"
     else
-        if [-n "${ps1host:-x}"]
+        if [-n "${ps1host:?}"]
         then
             echo "Set ps1host var in .bash_prompt"
         fi

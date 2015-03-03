@@ -5,29 +5,23 @@
 # the default umask is set in /etc/login.defs
 umask 002
 
-# include .bashrc if it exists
+# include .dotfiles if it exists
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-source ~/.git_completion
-source ~/.bash_prompt
+if [ -f ~/.git_completion ]; then
+    source ~/.git_completion
+fi
+
+if [ -f ~/.bash_prompt ]; then
+    source ~/.bash_prompt
+fi
 
 export TZ=America/Los_Angeles
-#export LD_LIBRARY_PATH=/opt/X11/lib
-#export EC2_HOME=~/.ec2
 export CDPATH=.:~:~/Work:~/Work/git
 export PATH=$PATH:~/Work/bin
-#export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin:$EC2_HOME/bin:$HOME/bin:/Library/Frameworks/GDAL.framework/Programs:/opt/local/bin
-#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
-#export PERL5LIB=/opt/local/lib/perl5/site_perl/5.12.3
 export EDITOR=vim
-#export TW_CON_KEY=ep4UC47ZbqSW0vPCPlvQNtgND
-#export TW_CON_SECRET=rSW6jk8PUruu4R3VgHzSYRWSsDM82t71E9dt5ZRet3ofGUSJO9
-#export TW_ACS_KEY=11006842-rcz0Hi3FXSPuhUuM43J8JDpAC1eXOu6zrdJnjIsf1
-#export TW_ACS_SECRET=ywDi9AyxLKPi5IJe8Iw6vklkSBtDI7qsBCrGMobLwexgS
-#export PG_TW_PW=earthcats.spacemonkey
-
 export LS_OPTIONS='--color=auto'
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
@@ -57,10 +51,6 @@ alias v='vim .'
 alias pine='alpine'
 alias vm='vm.sh'
 alias repo='repo.sh'
-alias vm-local-up='vagrant up 67573c9'
-alias vm-local-dn='vagrant halt 67573c9'
-alias vm-local-ssh='vagrant ssh 67573c9'
-alias vm-gs='vagrant global-status'
 
 echo   ' .bash_profile sourced.'
 
