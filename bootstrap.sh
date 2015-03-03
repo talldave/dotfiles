@@ -58,7 +58,7 @@ do
     ln -s $dir/$file ~/$file
 done
 
-if [ "${git}" -eq 1 ]
+if [ "${git}" = 1 ]
 then
     git_config
 fi
