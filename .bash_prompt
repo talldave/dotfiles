@@ -21,7 +21,7 @@ fi
 
 source ~/.bash_colors
 
-if [-f "~/.git_prompt"]; then
+if [ -f ~/.git_prompt ]; then
 PROMPT_COMMAND='Git_Repo=$(git config --get remote.origin.url)'
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
