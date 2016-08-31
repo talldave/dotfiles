@@ -10,6 +10,10 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
 if [ -f ~/.git_completion ]; then
     source ~/.git_completion
 fi
@@ -19,8 +23,8 @@ if [ -f ~/.bash_prompt ]; then
 fi
 
 export TZ=America/Los_Angeles
-export CDPATH=.:~:~/Work:~/Work/git
-export PATH=$PATH:~/Work/bin
+export CDPATH=.:~:~/Projects
+export PATH=$PATH:~/bin
 export EDITOR=vim
 export LS_OPTIONS='--color=auto'
 export CLICOLOR=1
