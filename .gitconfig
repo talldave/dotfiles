@@ -1,6 +1,6 @@
 [user]
-	name = talldave
-	email = me@davidbianco.net
+	name = 
+	email = 
 [core]
 	excludesfile = /Users/dbianco/.gitignore_global
 [difftool "sourcetree"]
